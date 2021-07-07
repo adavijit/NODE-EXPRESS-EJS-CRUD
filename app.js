@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.NODE_PORT || 3000;
 //CONECTING DB// APP CONFIG
 mongoose.connect(
-  `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${process.env.URL}?authSource=admin&replicaSet=db-mongodb-fra1-97351&tls=true&tlsCAFile=ca-cert.crt`,
+  `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${process.env.URL}?authSource=admin&replicaSet=db-mongodb-fra1-97351`,
   {
     dbName: process.env.DBNAME,
     user: process.env.USER,
@@ -56,7 +56,7 @@ let Blog = mongoose.model("Blog", blogSchema);
 app.get("/", (req, res) => {
   console.log("esche");
   //res.redirect("/blogs");
-	res.send("TEMP");
+  res.send("TEMP");
 });
 
 //INDEX ROUTES
