@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -9,7 +10,7 @@ const app = express();
 //CONECTING DB// APP CONFIG
 console.log(process.env.DBNAME);
 mongoose.connect(
-  `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@db-mongodb-fra1-97351-382f78ce.mongo.ondigitalocean.com/admin?authSource=admin&tls=true&tlsCAFile=ca-cert.crt`,
+  `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${process.env.URL}?authSource=admin&tls=true&tlsCAFile=ca-cert.crt`,
   {
     dbName: process.env.DBNAME,
     user: process.env.USER,
@@ -128,6 +129,6 @@ app.delete("/blogs/:id", (req, res) => {
   });
 });
 
-app.listen(3000, (req, res) => {
+app.listen(process.env.PORT || 3000, (req, res) => {
   console.log("The server is up and running on port 3000");
 });
