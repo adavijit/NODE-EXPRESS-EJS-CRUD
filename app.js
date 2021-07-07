@@ -10,7 +10,7 @@ const PORT = process.env.NODE_PORT || 3000;
 //CONECTING DB// APP CONFIG
 console.log(process.env.DBNAME);
 mongoose.connect(
-  `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${process.env.URL}?authSource=admin&tls=true&tlsCAFile=ca-cert.crt`,
+  `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${process.env.URL}?authSource=admin&tls=true&tlsCAFile=./public/ca-cert.crt`,
   {
     dbName: process.env.DBNAME,
     user: process.env.USER,
@@ -51,6 +51,7 @@ let Blog = mongoose.model("Blog", blogSchema);
 
 //RESTFUL ROUTES
 app.get("/", (req, res) => {
+  console.log("esche");
   res.redirect("/blogs");
 });
 
