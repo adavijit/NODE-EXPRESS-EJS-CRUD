@@ -18,6 +18,7 @@ mongoose.connect(
     useNewUrlParser: true,
   }
 );
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.set("view engine", "ejs");
