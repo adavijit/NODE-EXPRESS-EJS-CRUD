@@ -8,7 +8,8 @@ const expressSanitizer = require("express-sanitizer");
 const app = express();
 const PORT = process.env.NODE_PORT || 3000;
 //CONECTING DB// APP CONFIG
-const keypath = __dirname + "/ca-cert.crt";
+const keypath = __dirname + "\\ca-cert.crt";
+
 mongoose.connect(
   `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${process.env.URL}?authSource=admin&replicaSet=db-mongodb-fra1-97351&tls=true&tlsCAFile=${keypath}`,
   {
@@ -46,16 +47,11 @@ let blogSchema = mongoose.Schema({
 
 let Blog = mongoose.model("Blog", blogSchema);
 
-//SAMPLE BLOG
-// Blog.create({
-//     title: 'My first Academy',
-//     image: 'https://images.unsplash.com/photo-1551517725-b926592c4280?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-//     body: 'Hello this is a blog post'
-// })
-
 //RESTFUL ROUTES
 app.get("/", (req, res) => {
-  console.log("esche");
+  console.log("<====", keypath, "===>");
+
+  console.log("esche", process.env.PWD, "==");
   //res.redirect("/blogs");
   res.send("TEMP");
 });
