@@ -1,0 +1,27 @@
+i.icon {
+  font-size: 4em;
+}
+
+.container.main {
+  margin-top: 7em;
+}
+
+#delete {
+  display: inline;
+}
+
+img {
+  height: 7em;
+  width: 7em;
+}
+.main-div {
+  border: 1px solid gray;
+  margin: 1em;
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+.main {
+  margin-top: 1em;
+}
