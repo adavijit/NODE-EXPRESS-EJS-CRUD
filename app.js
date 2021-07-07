@@ -8,7 +8,7 @@ const expressSanitizer = require("express-sanitizer");
 const app = express();
 const PORT = process.env.NODE_PORT || 3000;
 //CONECTING DB// APP CONFIG
-const keypath = fs.readFileSync(__dirname + "/ca-cert.crt");
+const keypath = __dirname + "/ca-cert.crt";
 mongoose.connect(
   `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${process.env.URL}?authSource=admin&replicaSet=db-mongodb-fra1-97351&tls=true&tlsCAFile=${keypath}`,
   {
