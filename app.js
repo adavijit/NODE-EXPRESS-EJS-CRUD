@@ -6,7 +6,7 @@ const methodOverride = require("method-override");
 const expressSanitizer = require("express-sanitizer");
 
 const app = express();
-
+const PORT = process.env.NODE_PORT || 3000;
 //CONECTING DB// APP CONFIG
 console.log(process.env.DBNAME);
 mongoose.connect(
@@ -129,6 +129,6 @@ app.delete("/blogs/:id", (req, res) => {
   });
 });
 
-app.listen(process.env.NODE_PORT || 3000, (req, res) => {
-  console.log("The server is up and running on port 3000");
+app.listen(PORT, (req, res) => {
+  console.log(`The server is up and running on port ${PORT}`);
 });
